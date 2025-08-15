@@ -17,7 +17,10 @@ provider "aws" {
 }
 
 terraform {
-  backend "local" {
-    path = "terraform/terraform.tfstate"
+  backend "s3" {
+    bucket         = "terraform-state-aws-001"
+    key            = "tf-test-terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
   }
 }
